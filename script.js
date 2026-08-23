@@ -44,8 +44,19 @@ function playGame() {
     if (humanScore != computerScore) {
         let winner = (humanScore > computerScore) ? "YOU" : "COMPUTER"
 
-        console.log(`THE GAME IS OVER AND THE WINNER IS... ${winner}`);
+        console.log("THE GAME IS OVER AND THE RESULT IS...");
+        setTimeout(() => {
+            console.log(`your score: ${humanScore}`);
+            console.log(`computer score: ${computerScore}`);
+            console.log(`And the winner is: ${winner}!`);
+        }, 1000
+    )
+    } else {
+        console.log("... The game is over but the result is tie...")
+        console.log("Maybe try again?");
     }
+
+    
   
     function playRound(humanChoice, computerChoice) {
         if (humanChoice === "rock") {
