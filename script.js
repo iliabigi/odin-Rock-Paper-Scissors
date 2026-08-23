@@ -50,38 +50,83 @@ function playGame() {
     function playRound(humanChoice, computerChoice) {
         if (humanChoice === "rock") {
             if (computerChoice === "rock") {
-                console.log("Woah! a draw!");
+                console.log("The computer picked... rock!");
+                console.log("Woah! It's a draw!");
+
+                alert("The computer picked... rock!");
+                alert("Woah! It's a draw!");
+                
             } else if (computerChoice === "paper") {
-                console.log("You lose lol. paper defeats rock");
+                console.log("The computer picked... paper!");
+                console.log("And you lose lol. paper defeats rock");
+
+                alert("The computer picked... paper!");
+                alert("And you lose lol. paper defeats rock");
                 computerScore++;
+
             } else {
+                console.log("The computer picked... scissors");
                 console.log("You win! rock beats scissors");
+
+                alert("The computer picked... scissors");
+                alert("You win! rock beats scissors");
                 humanScore++;
+
             }
         } 
         
         else if (humanChoice === "paper") {
             if (computerChoice === "rock") {
+                console.log("The computer picked... rock!");
                 console.log("You win! paper beats rock");
+
+                alert("The computer picked... rock!");
+                alert("You win! rock beats scissors");
                 humanScore++;
+
             } else if (computerChoice === "paper") {
-                console.log("Woah! a draw!");
+                console.log("The computer picked... paper!");
+                console.log("Woah! It's a draw!");
+
+                alert("The computer picked... paper!");
+                alert("Woah! It's a draw!");
             } else {
-                console.log("You lose lol. scissors defeats paper");
+                console.log("The computer picked... scissors");
+                console.log("And you lose lol. scissors defeats paper");
+
+                alert("The computer picked... scissors");
+                alert("And you lose lol. paper defeats rock");
                 computerScore++;
+
             }
         } 
         
         else if (humanChoice === "scissors") {
             if (computerChoice === "rock") {
-                console.log("You lose lol. rock defeats scissors");
+                console.log("The computer picked... rock!");
+                console.log("And you lose lol. rock defeats scissors");
+
+                alert("The computer picked... rock!");
+                alert("And you lose lol. paper defeats rock");
                 computerScore++;
+
             } else if (computerChoice === "paper") {
+                console.log("The computer picked... paper!");
                 console.log("You win! scissors beat paper");
+
+                alert("The computer picked... paper!");
+                alert("You win! rock beats scissors");
                 humanScore++;
+
             } else {
-                console.log("Woah! a draw!");
+                console.log("The computer picked... scissors");
+                console.log("Woah! It's a draw!");
+
+                alert("The computer picked... scissors");
+                alert("Woah! It's a draw!");
             }
         }
     }
 }
+
+playGame();
