@@ -18,11 +18,11 @@ function getHumanChoice() {
     let pick = prompt("ROCK? PAPER? SCISSORS?");
     pick = pick.toLowerCase();
 
-    if (pick === "rock") {
+    if (pick === "rock" || pick === "r") {
         return "rock";
-    } else if (pick === "paper") {
+    } else if (pick === "paper" || pick === "p") {
         return "paper";
-    } else if (pick === "scissors") {
+    } else if (pick === "scissors" || pick === "s") {
         return "scissors";
     } else {
         console.log("You have exited the game.");
