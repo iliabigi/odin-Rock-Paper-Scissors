@@ -1,4 +1,4 @@
-playGame();
+playGame(); //Calls a function for playing the rock, paper and scissors game.
 
 
 function getComputerChoice() {
@@ -13,6 +13,8 @@ function getComputerChoice() {
     }
 }
 
+//Returns undefined if you don't enter any of the options as an input,
+//which leads to exiting the game later in the playGame function
 function getHumanChoice() {
     let pick = prompt("ROCK? PAPER? SCISSORS?");
     pick = pick.toLowerCase();
@@ -28,6 +30,9 @@ function getHumanChoice() {
     }
 }
 
+//playGame function.
+//The game plays in rounds of five and each round plays in a function called playRound,
+//which is invoked inside the playGame function
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
@@ -41,7 +46,7 @@ function playGame() {
             playRound(humanPick, computerPick);
             round++;
         } else {
-            return undefined;
+            return undefined; //if humanPick is undefined, return the function and end the game.
         }
     }
     
@@ -62,6 +67,8 @@ function playGame() {
         console.log("Maybe try again?");
     }
 
+    //playRound function to determin each round's result.
+    //it returns boolean values only for debugging, the return values have no other use.
     function playRound(humanChoice, computerChoice) {
         if (humanChoice === "rock") {
             console.log("You picked rock.");
