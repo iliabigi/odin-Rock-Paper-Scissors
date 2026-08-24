@@ -37,8 +37,13 @@ function playGame() {
         let humanPick = getHumanChoice();
         let computerPick = getComputerChoice();
 
-        playRound(humanPick, computerPick);
-        round++;
+        if (humanPick !== undefined) {
+            playRound(humanPick, computerPick);
+            round++;
+        } else {
+            return undefined;
+        }
+        
     }
     
     if (humanScore != computerScore) {
@@ -46,9 +51,11 @@ function playGame() {
 
         console.log("THE GAME IS OVER AND THE RESULT IS...");
         setTimeout(() => {
+            console.log("--------------------------------");
             console.log(`your score: ${humanScore}`);
             console.log(`computer score: ${computerScore}`);
             console.log(`And the winner is: ${winner}!`);
+            console.log("--------------------------------");
         }, 1000
     )
     } else {
@@ -66,6 +73,8 @@ function playGame() {
 
                 alert("The computer picked... rock!");
                 alert("Woah! It's a draw!");
+
+                return true;
                 
             } else if (computerChoice === "paper") {
                 console.log("The computer picked... paper!");
@@ -75,6 +84,8 @@ function playGame() {
                 alert("And you lose lol. paper defeats rock");
                 computerScore++;
 
+                return true;
+
             } else {
                 console.log("The computer picked... scissors");
                 console.log("You win! rock beats scissors");
@@ -82,6 +93,8 @@ function playGame() {
                 alert("The computer picked... scissors");
                 alert("You win! rock beats scissors");
                 humanScore++;
+
+                return true;
 
             }
         } 
@@ -92,8 +105,10 @@ function playGame() {
                 console.log("You win! paper beats rock");
 
                 alert("The computer picked... rock!");
-                alert("You win! rock beats scissors");
+                alert("You win! paper beats rock");
                 humanScore++;
+
+                return true;
 
             } else if (computerChoice === "paper") {
                 console.log("The computer picked... paper!");
@@ -101,13 +116,17 @@ function playGame() {
 
                 alert("The computer picked... paper!");
                 alert("Woah! It's a draw!");
+
+                return true;
             } else {
                 console.log("The computer picked... scissors");
                 console.log("And you lose lol. scissors defeats paper");
 
                 alert("The computer picked... scissors");
-                alert("And you lose lol. paper defeats rock");
+                alert("And you lose lol. scissors defeats paper");
                 computerScore++;
+
+                return true;
 
             }
         } 
@@ -118,16 +137,20 @@ function playGame() {
                 console.log("And you lose lol. rock defeats scissors");
 
                 alert("The computer picked... rock!");
-                alert("And you lose lol. paper defeats rock");
+                alert("And you lose lol. rock defeats scissors");
                 computerScore++;
+
+                return true;
 
             } else if (computerChoice === "paper") {
                 console.log("The computer picked... paper!");
                 console.log("You win! scissors beat paper");
 
                 alert("The computer picked... paper!");
-                alert("You win! rock beats scissors");
+                alert("You win! scissors beat paper");
                 humanScore++;
+
+                return true;
 
             } else {
                 console.log("The computer picked... scissors");
@@ -135,7 +158,13 @@ function playGame() {
 
                 alert("The computer picked... scissors");
                 alert("Woah! It's a draw!");
+
+                return true;
             }
+        } 
+
+        else {
+            return false;
         }
     }
 }
