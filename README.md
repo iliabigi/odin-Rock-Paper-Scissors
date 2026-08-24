@@ -7,6 +7,7 @@ This project is about creating a rock, paper, scissors game which will be played
 What I've learned after this project:
 
 
+*Writing basic Javascript scripts
 
 
-
+*Javascript functions, callback functions & nested functions
