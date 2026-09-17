@@ -1,4 +1,4 @@
-playGame(); //Calls a function for playing the rock, paper and scissors game.
+// playGame(); //Calls a function for playing the rock, paper and scissors game.
 
 
 function getComputerChoice() {
