@@ -1,4 +1,32 @@
 // playGame(); //Calls a function for playing the rock, paper and scissors game.
+const ROCK_IMAGE = "https://i.pinimg.com/736x/f5/8d/54/f58d5428ab817b5281c4c06e68539b77.jpg";
+let selector = document.querySelector("#rock");
+selector.src = ROCK_IMAGE;
+
+const PAPER_IMAGE = "https://i.pinimg.com/736x/b1/4e/44/b14e44a226cbe207468a2a6221e11f19.jpg";
+selector = document.querySelector("#paper");
+selector.src = PAPER_IMAGE;
+
+const SCISSORS_IMAGE = "https://i.pinimg.com/736x/d0/e4/e3/d0e4e3d5b45f15ef6cb8538ac6b71c12.jpg";
+selector = document.querySelector("#scissors");
+selector.src = SCISSORS_IMAGE;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function getComputerChoice() {

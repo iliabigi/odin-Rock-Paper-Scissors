@@ -1,7 +1,7 @@
 body {
     min-height: 100vh;
-    background-color: rgb(254, 244, 189);
-    
+    /* background-color: rgb(254, 244, 189); */
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,7 +14,19 @@ body {
     justify-content: space-evenly;
 }
 
+.buttons div {
+    display: flex;
+    flex-direction: column;
+}
+
 .buttons button {
     height: 100px;
     width: 200px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    mix-blend-mode: multiply;
+    
 }
