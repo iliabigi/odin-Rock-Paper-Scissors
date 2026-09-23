@@ -1,6 +1,6 @@
 let round = 0;
-let humanScore = "";
-let computerScore = "";
+let humanScore = 0;
+let computerScore = 0;
 
 const ROCK_IMAGE = "https://i.pinimg.com/736x/f5/8d/54/f58d5428ab817b5281c4c06e68539b77.jpg";
 let selector = document.querySelector("#rock");
@@ -28,24 +28,43 @@ buttons.forEach(btn => {
             if (result === 1) {
                 const selectHumanScore = document.querySelector("#scoreBoard #humanScore");
                 selectHumanScore.append("*");
+                humanScore++;
             } else if (result === 3) {
                 const selectComputerScore = document.querySelector("#scoreBoard #computerScore");
                 selectComputerScore.append("*");
+                computerScore++;
             } else {
                 const selectComputerScore = document.querySelector("#scoreBoard #drawCount");
                 selectComputerScore.append("*");
-
             }
 
             //round class: .roundCount
             const head = document.querySelector(".header");
+
+            if (round === 5) {
+                const endMessage = document.createElement("h1");
+                endMessage.classList.add("endMessage");
+                if (humanScore > computerScore) {
+                    endMessage.textContent = "GAME OVER! YOU'VE WON :D";
+                    endMessage.style.color = "aqua";
+                } else if (computerScore > humanScore) {
+                    endMessage.textContent = "GAME OVER! YOU'VE LOST! BETTER LUCK NEXT TIME.";
+                    endMessage.style.color = "red";
+                } else {
+                    endMessage.textContent = "Ahh... tis a brutal stalemate at last... tarnished..."
+                    endMessage.style.color = "gray";
+                }
+                head.prepend(endMessage);
+                endMessage.scrollIntoView();
+            }
+
             const roundHeader = document.createElement("h1");
             roundHeader.classList.add("roundCount");
             roundHeader.textContent = `ROUND ${round}`;
 
             roundHeader.style.color = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
 
-            const oldRound = document.querySelector(".header h1");
+            const oldRound = document.querySelector(".header .roundCount");
             if (oldRound !== null) oldRound.replaceWith(roundHeader);
             else head.appendChild(roundHeader);
 

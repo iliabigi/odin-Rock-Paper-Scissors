@@ -55,16 +55,9 @@ body {
     margin-bottom: 100px; */
 }
 
-.header h3 {
-  font-size: 20px;
-  font-style: italic;
-  margin-bottom: -20px;
-  width: 100px;
-}
-
+.endMessage,
 .roundCount {
-    font-size: 60px;
-    color: blue;
+    font-size: 40px;
 }
 
 img {
