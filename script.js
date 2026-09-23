@@ -11,8 +11,15 @@ const SCISSORS_IMAGE = "https://i.pinimg.com/736x/d0/e4/e3/d0e4e3d5b45f15ef6cb85
 selector = document.querySelector("#scissors");
 selector.src = SCISSORS_IMAGE;
 
-
-
+const buttons = document.querySelectorAll("button");
+buttons.forEach(btn => {
+    btn.addEventListener("click", e => {
+        let humanChoice = e.target.textContent;
+        humanChoice = humanChoice.toLowerCase();
+        const botChoice = getComputerChoice();
+        playRound(humanChoice, botChoice);
+    });
+});
 
 
 
@@ -88,6 +95,8 @@ function playGame() {
 }
 
 function playRound(humanChoice, computerChoice) {
+    
+
     if (humanChoice === "rock") {
         console.log("You picked rock.");
         if (computerChoice === "rock") {
