@@ -93,43 +93,6 @@ function getHumanChoice() {
     }
 }
 
-//playGame function.
-//The game plays in rounds of five and each round plays in a function called playRound,
-//which is invoked inside the playGame function
-function playGame() {
-    // let humanScore = 0;
-    // let computerScore = 0;
-    // let round = 1;
-
-    while (round <= 5) {
-        let humanPick = getHumanChoice();
-        let computerPick = getComputerChoice();
-
-        if (humanPick !== undefined) {
-            playRound(humanPick, computerPick);
-            round++;
-        } else {
-            return undefined; //if humanPick is undefined, return the function and end the game.
-        }
-    }
-
-    if (humanScore != computerScore) {
-        let winner = humanScore > computerScore ? "YOU" : "COMPUTER";
-
-        console.log("THE GAME IS OVER AND THE RESULT IS...");
-        setTimeout(() => {
-            console.log("--------------------------------");
-            console.log(`your score: ${humanScore}`);
-            console.log(`computer score: ${computerScore}`);
-            console.log(`And the winner is: ${winner}!`);
-            console.log("--------------------------------");
-        }, 1000);
-    } else {
-        console.log("... The game is over but the result is tie...");
-        console.log("Maybe try again?");
-    }
-}
-
 //1 = win
 //2 = draw
 //3 = lose
@@ -168,4 +131,3 @@ function playRound(humanChoice, computerChoice) {
         return 3;
     }
 }
-console.log(round);
