@@ -146,13 +146,12 @@ function playGame() {
 //3 = lose
 function playRound(humanChoice, computerChoice) {
     const div = document.querySelector(".status");
-    div.innerHTML = "";
     if ((humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")) {
 
             const para = document.createElement("p");
-            para.innerHTML = `You've chosed ${humanChoice} & the computer chose ${computerChoice}... <br>
+            para.innerHTML = `Round ${round} <br> You've chosed ${humanChoice} & the computer chose ${computerChoice}... <br>
                         YOU WIN!!!! ${humanChoice.toUpperCase()} BEATS ${computerChoice.toUpperCase()}!!!`;
             div.appendChild(para);
 
@@ -164,7 +163,7 @@ function playRound(humanChoice, computerChoice) {
              (humanChoice === "scissors" && computerChoice === "scissors")) {
 
                 const para = document.createElement("p");
-                para.innerHTML = `You've chosed ${humanChoice} & the computer chose ${computerChoice}... <br>
+                para.innerHTML = `Round ${round} <br> You've chosed ${humanChoice} & the computer chose ${computerChoice}... <br>
                         Woah... It's a draw!`;
                 div.appendChild(para);
 
@@ -173,10 +172,11 @@ function playRound(humanChoice, computerChoice) {
     
     else {
         const para = document.createElement("p");
-        para.innerHTML = `You've chosed ${humanChoice} & the computer chose ${computerChoice}... <br>
+        para.innerHTML = `Round ${round} <br> You've chosed ${humanChoice} & the computer chose ${computerChoice}... <br>
                           You've lost! ${computerChoice} beats ${humanChoice}... better luck next time!`;
         div.appendChild(para);
 
         return 3;
     }
 }
+console.log(round);
