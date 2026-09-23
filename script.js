@@ -1,4 +1,6 @@
 let round = 0;
+let humanScore = "";
+let computerScore = "";
 
 const ROCK_IMAGE = "https://i.pinimg.com/736x/f5/8d/54/f58d5428ab817b5281c4c06e68539b77.jpg";
 let selector = document.querySelector("#rock");
@@ -23,11 +25,40 @@ buttons.forEach(btn => {
             const botChoice = getComputerChoice();
             let result = playRound(humanChoice, botChoice);
 
+            if (result === 1) {
+                humanScore += "*";
+            } else if (result === 3) {
+                computerScore += "*";
+            }
+
+            //round class: .roundCount
             const head = document.querySelector(".header");
-            const header = document.createElement("h1");
-            header.textContent = `ROUND ${round}`;
-            head.innerHTML = "";
-            head.appendChild(header);
+            const roundHeader = document.createElement("h1");
+            roundHeader.classList.add("roundCount");
+            roundHeader.textContent = `ROUND ${round}`;
+
+            const oldRound = document.querySelector(".header h1");
+            if (oldRound !== null) oldRound.replaceWith(roundHeader);
+            else head.appendChild(roundHeader);
+
+            //class: .humanSB
+            const humanScoreBoard = document.createElement("h3");
+            humanScoreBoard.textContent = `Human: ${humanScore}`; //display the score
+            humanScoreBoard.classList.add("humanSB"); 
+            const oldHumanScoreBoard = document.querySelector(".humanSB"); //update the element if it existed
+            if (oldHumanScoreBoard !== null) oldHumanScoreBoard.replaceWith(humanScoreBoard);
+            else head.appendChild(humanScoreBoard);
+
+
+            //class: .computerSB
+            const computerScoreBoard = document.createElement("h3");
+            computerScoreBoard.textContent = `Computer: ${computerScore}`;
+            computerScoreBoard.classList.add("computerSB");
+            const oldComputerScoreBoard = document.querySelector(".computerSB");
+            if (oldComputerScoreBoard !== null) oldComputerScoreBoard.replaceWith(computerScoreBoard);
+            else head.appendChild(computerScoreBoard);
+
+            
         
         } else {
             round = 0;
@@ -72,9 +103,9 @@ function getHumanChoice() {
 //The game plays in rounds of five and each round plays in a function called playRound,
 //which is invoked inside the playGame function
 function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
-    let round = 1;
+    // let humanScore = 0;
+    // let computerScore = 0;
+    // let round = 1;
 
     while (round <= 5) {
         let humanPick = getHumanChoice();
