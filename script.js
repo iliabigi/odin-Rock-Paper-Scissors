@@ -58,10 +58,10 @@ buttons.forEach(btn => {
             if (oldComputerScoreBoard !== null) oldComputerScoreBoard.replaceWith(computerScoreBoard);
             else head.appendChild(computerScoreBoard);
 
-            
-        
         } else {
             round = 0;
+            alert("Starting over...");
+            location.reload();
         }
     });
 });
