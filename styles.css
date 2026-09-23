@@ -33,6 +33,13 @@ body {
     /* border: 2px solid red; */
 }
 
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
 img {
     width: 200px;
     height: 200px;

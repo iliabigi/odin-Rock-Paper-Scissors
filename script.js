@@ -1,4 +1,5 @@
-// playGame(); //Calls a function for playing the rock, paper and scissors game.
+let round = 0;
+
 const ROCK_IMAGE = "https://i.pinimg.com/736x/f5/8d/54/f58d5428ab817b5281c4c06e68539b77.jpg";
 let selector = document.querySelector("#rock");
 selector.src = ROCK_IMAGE;
@@ -14,10 +15,23 @@ selector.src = SCISSORS_IMAGE;
 const buttons = document.querySelectorAll("button");
 buttons.forEach(btn => {
     btn.addEventListener("click", e => {
-        let humanChoice = e.target.textContent;
-        humanChoice = humanChoice.toLowerCase();
-        const botChoice = getComputerChoice();
-        playRound(humanChoice, botChoice);
+        if (round < 5) {
+            round++;
+
+            let humanChoice = e.target.textContent;
+            humanChoice = humanChoice.toLowerCase();
+            const botChoice = getComputerChoice();
+            let result = playRound(humanChoice, botChoice);
+
+            const head = document.querySelector(".header");
+            const header = document.createElement("h1");
+            header.textContent = `ROUND ${round}`;
+            head.innerHTML = "";
+            head.appendChild(header);
+        
+        } else {
+            round = 0;
+        }
     });
 });
 
@@ -91,6 +105,9 @@ function playGame() {
     }
 }
 
+//1 = win
+//2 = draw
+//3 = lose
 function playRound(humanChoice, computerChoice) {
     const div = document.querySelector(".status");
     div.innerHTML = "";
@@ -102,6 +119,8 @@ function playRound(humanChoice, computerChoice) {
             para.innerHTML = `You've chosed ${humanChoice} & the computer chose ${computerChoice}... <br>
                         YOU WIN!!!! ${humanChoice.toUpperCase()} BEATS ${computerChoice.toUpperCase()}!!!`;
             div.appendChild(para);
+
+            return 1;
     } 
     
     else if ((humanChoice === "rock" && computerChoice === "rock") ||
@@ -112,6 +131,8 @@ function playRound(humanChoice, computerChoice) {
                 para.innerHTML = `You've chosed ${humanChoice} & the computer chose ${computerChoice}... <br>
                         Woah... It's a draw!`;
                 div.appendChild(para);
+
+                return 2;
     } 
     
     else {
@@ -119,5 +140,7 @@ function playRound(humanChoice, computerChoice) {
         para.innerHTML = `You've chosed ${humanChoice} & the computer chose ${computerChoice}... <br>
                           You've lost! ${computerChoice} beats ${humanChoice}... better luck next time!`;
         div.appendChild(para);
+
+        return 3;
     }
 }
