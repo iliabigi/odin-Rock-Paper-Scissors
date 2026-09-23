@@ -89,9 +89,6 @@ function playGame() {
         console.log("... The game is over but the result is tie...");
         console.log("Maybe try again?");
     }
-
-    //playRound function to determin each round's result.
-    //it returns boolean values only for debugging, the return values have no other use.
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -123,5 +120,4 @@ function playRound(humanChoice, computerChoice) {
                           You've lost! ${computerChoice} beats ${humanChoice}... better luck next time!`;
         div.appendChild(para);
     }
-        
 }
