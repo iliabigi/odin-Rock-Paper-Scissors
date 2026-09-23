@@ -95,96 +95,33 @@ function playGame() {
 }
 
 function playRound(humanChoice, computerChoice) {
+    const div = document.querySelector(".status");
+    div.innerHTML = "";
+    if ((humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper")) {
+
+            const para = document.createElement("p");
+            para.innerHTML = `You've chosed ${humanChoice} & the computer chose ${computerChoice}... <br>
+                        YOU WIN!!!! ${humanChoice.toUpperCase()} BEATS ${computerChoice.toUpperCase()}!!!`;
+            div.appendChild(para);
+    } 
     
+    else if ((humanChoice === "rock" && computerChoice === "rock") ||
+             (humanChoice === "paper" && computerChoice === "paper") ||
+             (humanChoice === "scissors" && computerChoice === "scissors")) {
 
-    if (humanChoice === "rock") {
-        console.log("You picked rock.");
-        if (computerChoice === "rock") {
-            console.log("The computer picked... rock!");
-            console.log("Woah! It's a draw!");
-
-            alert("The computer picked... rock!");
-            alert("Woah! It's a draw!");
-
-            return true;
-        } else if (computerChoice === "paper") {
-            console.log("The computer picked... paper!");
-            console.log("And you lose lol. paper defeats rock");
-
-            alert("The computer picked... paper!");
-            alert("And you lose lol. paper defeats rock");
-            computerScore++;
-
-            return true;
-        } else {
-            console.log("The computer picked... scissors");
-            console.log("You win! rock beats scissors");
-
-            alert("The computer picked... scissors");
-            alert("You win! rock beats scissors");
-            humanScore++;
-
-            return true;
-        }
-    } else if (humanChoice === "paper") {
-        console.log("You picked paper");
-        if (computerChoice === "rock") {
-            console.log("The computer picked... rock!");
-            console.log("You win! paper beats rock");
-
-            alert("The computer picked... rock!");
-            alert("You win! paper beats rock");
-            humanScore++;
-
-            return true;
-        } else if (computerChoice === "paper") {
-            console.log("The computer picked... paper!");
-            console.log("Woah! It's a draw!");
-
-            alert("The computer picked... paper!");
-            alert("Woah! It's a draw!");
-
-            return true;
-        } else {
-            console.log("The computer picked... scissors");
-            console.log("And you lose lol. scissors defeats paper");
-
-            alert("The computer picked... scissors");
-            alert("And you lose lol. scissors defeats paper");
-            computerScore++;
-
-            return true;
-        }
-    } else if (humanChoice === "scissors") {
-        console.log("You picked scissors");
-        if (computerChoice === "rock") {
-            console.log("The computer picked... rock!");
-            console.log("And you lose lol. rock defeats scissors");
-
-            alert("The computer picked... rock!");
-            alert("And you lose lol. rock defeats scissors");
-            computerScore++;
-
-            return true;
-        } else if (computerChoice === "paper") {
-            console.log("The computer picked... paper!");
-            console.log("You win! scissors beat paper");
-
-            alert("The computer picked... paper!");
-            alert("You win! scissors beat paper");
-            humanScore++;
-
-            return true;
-        } else {
-            console.log("The computer picked... scissors");
-            console.log("Woah! It's a draw!");
-
-            alert("The computer picked... scissors");
-            alert("Woah! It's a draw!");
-
-            return true;
-        }
-    } else {
-        return false;
+                const para = document.createElement("p");
+                para.innerHTML = `You've chosed ${humanChoice} & the computer chose ${computerChoice}... <br>
+                        Woah... It's a draw!`;
+                div.appendChild(para);
+    } 
+    
+    else {
+        const para = document.createElement("p");
+        para.innerHTML = `You've chosed ${humanChoice} & the computer chose ${computerChoice}... <br>
+                          You've lost! ${computerChoice} beats ${humanChoice}... better luck next time!`;
+        div.appendChild(para);
     }
+        
 }
