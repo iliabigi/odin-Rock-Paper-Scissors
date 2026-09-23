@@ -1,7 +1,3 @@
-let round = 0;
-let humanScore = 0;
-let computerScore = 0;
-
 const ROCK_IMAGE = "https://i.pinimg.com/736x/f5/8d/54/f58d5428ab817b5281c4c06e68539b77.jpg";
 let selector = document.querySelector("#rock");
 selector.src = ROCK_IMAGE;
@@ -14,17 +10,25 @@ const SCISSORS_IMAGE = "https://i.pinimg.com/736x/d0/e4/e3/d0e4e3d5b45f15ef6cb85
 selector = document.querySelector("#scissors");
 selector.src = SCISSORS_IMAGE;
 
+
+let round = 0;
+let humanScore = 0;
+let computerScore = 0;
+
+
 const buttons = document.querySelectorAll("button");
 buttons.forEach(btn => {
     btn.addEventListener("click", e => {
         if (round < 5) {
             round++;
 
+            //getting human & compouter choice and starting the round with PlayRound function
             let humanChoice = e.target.textContent;
             humanChoice = humanChoice.toLowerCase();
             const botChoice = getComputerChoice();
             let result = playRound(humanChoice, botChoice);
 
+            //displaying result in the score board and saving the current score
             if (result === 1) {
                 const selectHumanScore = document.querySelector("#scoreBoard #humanScore");
                 selectHumanScore.append("*");
@@ -38,9 +42,11 @@ buttons.forEach(btn => {
                 selectComputerScore.append("*");
             }
 
-            //round class: .roundCount
+
             const head = document.querySelector(".header");
 
+            //Creating an element to display the final result
+            //class: .endMessage
             if (round === 5) {
                 const endMessage = document.createElement("h1");
                 endMessage.classList.add("endMessage");
@@ -58,6 +64,8 @@ buttons.forEach(btn => {
                 endMessage.scrollIntoView();
             }
 
+            //Creating an element to display the current round
+            //round class: .roundCount
             const roundHeader = document.createElement("h1");
             roundHeader.classList.add("roundCount");
             roundHeader.textContent = `ROUND ${round}`;
@@ -69,6 +77,7 @@ buttons.forEach(btn => {
             else head.appendChild(roundHeader);
 
         } else {
+            //start the game over if it passes round 5
             round = 0;
             alert("Starting over...");
             location.reload();
@@ -76,7 +85,7 @@ buttons.forEach(btn => {
     });
 });
 
-
+//a function to randomly color the round message at the header
 function randomColor() {
     let res = Math.floor(Math.random() * 256);
     return res
@@ -95,23 +104,7 @@ function getComputerChoice() {
     }
 }
 
-//Returns undefined if you don't enter any of the options as an input,
-//which leads to exiting the game later in the playGame function
-function getHumanChoice() {
-    let pick = prompt("ROCK? PAPER? SCISSORS?");
-    pick = pick.toLowerCase();
-
-    if (pick === "rock" || pick === "r") {
-        return "rock";
-    } else if (pick === "paper" || pick === "p") {
-        return "paper";
-    } else if (pick === "scissors" || pick === "s") {
-        return "scissors";
-    } else {
-        console.log("You have exited the game.");
-    }
-}
-
+//PlayRound function declares the result of the rps game with the human and computer picks given to it as arguments.
 //1 = win
 //2 = draw
 //3 = lose
