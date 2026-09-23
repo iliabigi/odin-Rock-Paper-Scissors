@@ -118,7 +118,7 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice === "scissors" && computerChoice === "paper")) {
 
             const para = document.createElement("p");
-            para.innerHTML = `Round ${round} <br> You've chosed ${humanChoice} & the computer chose ${computerChoice}... <br>
+            para.innerHTML = `Round ${round} <br> You've choses ${humanChoice} & the computer chose ${computerChoice}... <br>
                         YOU WIN!!!! ${humanChoice.toUpperCase()} BEATS ${computerChoice.toUpperCase()}!!!`;
             div.appendChild(para);
 
@@ -130,7 +130,7 @@ function playRound(humanChoice, computerChoice) {
              (humanChoice === "scissors" && computerChoice === "scissors")) {
 
                 const para = document.createElement("p");
-                para.innerHTML = `Round ${round} <br> You've chosed ${humanChoice} & the computer chose ${computerChoice}... <br>
+                para.innerHTML = `Round ${round} <br> You've chosen ${humanChoice} & the computer chose ${computerChoice}... <br>
                         Woah... It's a draw!`;
                 div.appendChild(para);
 
@@ -139,7 +139,7 @@ function playRound(humanChoice, computerChoice) {
     
     else {
         const para = document.createElement("p");
-        para.innerHTML = `Round ${round} <br> You've chosed ${humanChoice} & the computer chose ${computerChoice}... <br>
+        para.innerHTML = `Round ${round} <br> You've chosen ${humanChoice} & the computer chose ${computerChoice}... <br>
                           You've lost! ${computerChoice} beats ${humanChoice}... better luck next time!`;
         div.appendChild(para);
 
