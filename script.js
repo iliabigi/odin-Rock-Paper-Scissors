@@ -26,9 +26,15 @@ buttons.forEach(btn => {
             let result = playRound(humanChoice, botChoice);
 
             if (result === 1) {
-                humanScore += "*";
+                const selectHumanScore = document.querySelector("#scoreBoard #humanScore");
+                selectHumanScore.append("*");
             } else if (result === 3) {
-                computerScore += "*";
+                const selectComputerScore = document.querySelector("#scoreBoard #computerScore");
+                selectComputerScore.append("*");
+            } else {
+                const selectComputerScore = document.querySelector("#scoreBoard #drawCount");
+                selectComputerScore.append("*");
+
             }
 
             //round class: .roundCount
@@ -42,23 +48,6 @@ buttons.forEach(btn => {
             const oldRound = document.querySelector(".header h1");
             if (oldRound !== null) oldRound.replaceWith(roundHeader);
             else head.appendChild(roundHeader);
-
-            //class: .humanSB
-            const humanScoreBoard = document.createElement("h3");
-            humanScoreBoard.textContent = `Human: ${humanScore}`; //display the score
-            humanScoreBoard.classList.add("humanSB"); 
-            const oldHumanScoreBoard = document.querySelector(".humanSB"); //update the element if it existed
-            if (oldHumanScoreBoard !== null) oldHumanScoreBoard.replaceWith(humanScoreBoard);
-            else head.appendChild(humanScoreBoard);
-
-
-            //class: .computerSB
-            const computerScoreBoard = document.createElement("h3");
-            computerScoreBoard.textContent = `Computer: ${computerScore}`;
-            computerScoreBoard.classList.add("computerSB");
-            const oldComputerScoreBoard = document.querySelector(".computerSB");
-            if (oldComputerScoreBoard !== null) oldComputerScoreBoard.replaceWith(computerScoreBoard);
-            else head.appendChild(computerScoreBoard);
 
         } else {
             round = 0;

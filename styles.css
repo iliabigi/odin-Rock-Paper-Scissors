@@ -39,13 +39,20 @@ body {
     font-size: 30px;
 }
 
+.status #scoreBoard {
+    font-style: normal;
+    font-style: bold;
+    font-size: 25px;
+
+}
+
 .header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 150px;
-    margin-bottom: 100px;
+    /* height: 150px;
+    margin-bottom: 100px; */
 }
 
 .header h3 {
