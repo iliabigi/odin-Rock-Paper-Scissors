@@ -42,7 +42,6 @@ buttons.forEach(btn => {
                 selectComputerScore.append("*");
             }
 
-
             const head = document.querySelector(".header");
 
             //Creating an element to display the final result
@@ -62,6 +61,11 @@ buttons.forEach(btn => {
                 }
                 head.prepend(endMessage);
                 endMessage.scrollIntoView();
+
+                const restartMessage = document.createElement("p");
+                const status = document.querySelector(".status");
+                restartMessage.textContent = "The game has finished, press any button to restart."
+                status.appendChild(restartMessage);
             }
 
             //Creating an element to display the current round
@@ -90,7 +94,6 @@ function randomColor() {
     let res = Math.floor(Math.random() * 256);
     return res
 }
-
 
 function getComputerChoice() {
     let pick = Math.floor(Math.random() * 3) + 1; //1 = rock, 2 = paper, 3 = scissors.
