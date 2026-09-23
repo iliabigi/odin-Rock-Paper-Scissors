@@ -37,6 +37,8 @@ buttons.forEach(btn => {
             roundHeader.classList.add("roundCount");
             roundHeader.textContent = `ROUND ${round}`;
 
+            roundHeader.style.color = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+
             const oldRound = document.querySelector(".header h1");
             if (oldRound !== null) oldRound.replaceWith(roundHeader);
             else head.appendChild(roundHeader);
@@ -67,7 +69,10 @@ buttons.forEach(btn => {
 });
 
 
-
+function randomColor() {
+    let res = Math.floor(Math.random() * 256);
+    return res
+}
 
 
 function getComputerChoice() {
