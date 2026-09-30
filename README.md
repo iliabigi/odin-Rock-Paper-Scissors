@@ -1,6 +1,6 @@
-The Odin Project
+**The Odin Project**
 
-Project #3 - 23 August
+**Project #3 - 23 August**
 
 This project is about creating a rock, paper, scissors game.
 
@@ -10,10 +10,8 @@ Initially the game was only played in console but later on I revamped the projec
 What I've learned after this project:
 
 
-*Writing basic Javascript scripts.
+- Writing basic Javascript scripts.
 
+- Javascript functions, callback functions & nested functions.
 
-*Javascript functions, callback functions & nested functions.
-
-
-*Javascript DOM manipulation, creating interactive web pages using javascript.
+- Javascript DOM manipulation, creating interactive web pages using javascript.
